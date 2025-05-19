@@ -23,7 +23,7 @@ The following changes have been made to Apple's sample code:
   2. codesign --display --requirement - /path/to/YourClientApp.app. 🔑 [Developer ID Application]
      designated => anchor apple generic and identifier "com.apple.bsd.SMJobBlessApp" and (certificate leaf[field.xx.xx.xx.xx] /*     exists */       or certificate 1[field.xx.xx.xx.xx] /* exists */ and certificate leaf[field.xx.xx.xx] /* exists */   and certificate leaf[subject.OU] = xx)
   3. Open "SMJobBlessApp-Info.plist", edit
-      "<dict>
+     
 	<key>com.apple.bsd.SMJobBlessHelper</key>
  	<string>identifier "com.apple.bsd.SMJobBlessHelper"
       		and anchor apple generic
@@ -31,16 +31,16 @@ The following changes have been made to Apple's sample code:
       		and certificate leaf[field.1.2.840.113635.100.6.1.13] exists
       		and certificate leaf[subject.CN] = "Developer ID Application: Example Company Inc. (ABCDEFGHIJ)"
      	</string>
-	</dict>"
+
   5. Open "SMJobBlessHelper-Info.plist, edit
-     "<key>SMAuthorizedClients</key>"
-     	<array>
-  		<string>identifier "com.apple.bsd.SMJobBlessApp"
+
+    <key>SMAuthorizedClients</key>
+     <array>
+  	<string>identifier "com.apple.bsd.SMJobBlessApp"
       		and anchor apple generic
       		and certificate 1[field.1.2.840.113635.100.6.2.6] exists
       		and certificate leaf[field.1.2.840.113635.100.6.1.13] exists
       		and certificate leaf[subject.CN] = "Developer ID Application: Example Company Inc. (ABCDEFGHIJ)"
-     		</string>
-    	 </array>"
-   
+       </string>
+     </array>
      
